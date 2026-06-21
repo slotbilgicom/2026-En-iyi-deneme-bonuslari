@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slot Bilgi | VIP Deneme Bonusları</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #09090a;
+      --card-bg: #121215;
+      --card-border: rgba(212, 175, 55, 0.15);
+      --gold: #c5a880;
+      /* Elegant Brushed Gold */
+      --gold-bright: #e5cfa3;
+      --gold-dark: #8e734c;
+      --text-main: #f5f5f7;
+      --text-muted: #8e8e93;
+      --nav-bg: rgba(14, 14, 16, 0.92);
+
+      --gold-gradient: linear-gradient(135deg, #e5cfa3 0%, #c5a880 50%, #9a7f56 100%);
+      --dark-gradient: linear-gradient(135deg, #1c1c1f 0%, #111113 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 50% 0%, #1a1917 0%, transparent 50%),
+        radial-gradient(circle at 0% 100%, #0d0d0e 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* PREMIUM HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 9, 10, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+      padding: 18px 24px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-content {
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      gap: 24px;
+    }
+
+    .header-logo-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    header img {
+      height: 44px;
+      width: 44px;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+      object-fit: cover;
+    }
+
+    .header-text-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-title {
+      font-size: 20px;
+      font-weight: 700;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-title i {
+      font-size: 14px;
+      color: var(--gold);
+    }
+
+    .header-tagline {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-top: 3px;
+      letter-spacing: 0.3px;
+    }
+
+    .header-cta {
+      background: transparent;
+      border: 1px solid var(--gold);
+      padding: 10px 20px;
+      border-radius: 6px;
+      color: var(--gold-bright);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .header-cta:hover {
+      background: var(--gold-gradient);
+      color: #0c0c0e;
+      border-color: transparent;
+      box-shadow: 0 4px 20px rgba(197, 168, 128, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* CONTENT LIST */
+    .list {
+      max-width: 100%;
+      margin: 40px auto 120px;
+      padding: 0 24px;
+    }
+
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      margin-bottom: 20px;
+      animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CARD DESIGN */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+    }
+
+    .card:hover {
+      background: #17171b;
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(197, 168, 128, 0.05);
+    }
+
+    .left {
+      flex-shrink: 0;
+      background: #c5a060;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      padding: 8px;
+      width: 90px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover .left {
+      border-color: rgba(197, 168, 128, 0.3);
+    }
+
+    .left img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .center-text-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: rgba(197, 168, 128, 0.08);
+      color: var(--gold-bright);
+      border: 1px solid rgba(197, 168, 128, 0.2);
+    }
+
+    .badge-vip {
+      background: rgba(197, 168, 128, 0.15);
+      border-color: var(--gold);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .center-text {
+      font-weight: 600;
+      font-size: 16px;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+
+    .bonus-btn {
+      background: transparent;
+      color: var(--gold-bright);
+      border: 1px solid rgba(197, 168, 128, 0.4);
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover .bonus-btn {
+      background: var(--gold-gradient);
+      color: #0c0c0e;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(197, 168, 128, 0.2);
+    }
+
+    /* PREMIUM FLOATING NAVIGATION */
+    nav {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 600px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+    }
+
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      flex: 1;
+      min-width: 0;
+      padding: 8px 4px;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .menu-item:hover {
+      opacity: 0.9;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .menu-item.active {
+      opacity: 1;
+      background: rgba(197, 168, 128, 0.06);
+      border: 1px solid rgba(197, 168, 128, 0.15);
+    }
+
+    .menu-icon {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      filter: grayscale(1) brightness(1.2);
+    }
+
+    .menu-item.active .menu-icon,
+    .menu-item:hover .menu-icon {
+      filter: none;
+    }
+
+    .menu-item span {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .menu-item.active span {
+      color: var(--gold-bright);
+    }
+
+    /* MOBILE OPTIMIZATIONS */
+    @media (max-width: 600px) {
+      header {
+        padding: 14px 16px;
+      }
+
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .header-logo-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header img {
+        height: 48px;
+        width: 48px;
+      }
+
+      .header-title {
+        font-size: 18px;
+        justify-content: center;
+      }
+
+      .header-tagline {
+        font-size: 11px;
+        max-width: 320px;
+        margin: 4px auto 0;
+      }
+
+      .header-cta {
+        width: 100%;
+        padding: 12px;
+        font-size: 12px;
+      }
+
+      .list {
+        margin: 24px auto 100px;
+        padding: 0 16px;
+      }
+
+      .card {
+        padding: 16px;
+        gap: 16px;
+        border-radius: 8px;
+      }
+
+      .left {
+        width: 80px;
+        height: 55px;
+        padding: 6px;
+      }
+
+      .center-text {
+        font-size: 14px;
+      }
+
+      .card-badge {
+        font-size: 9px;
+        padding: 2px 6px;
+      }
+
+      .bonus-btn {
+        padding: 10px 16px;
+        font-size: 11px;
+        border-radius: 4px;
+      }
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(197, 168, 128, 0.2);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(197, 168, 128, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="https://slotbilgi.com" target="_blank" class="header-content">
+      <div class="header-logo-group">
+        <img src="img/slotbilgi.jpg" alt="logo">
+        <div class="header-text-container">
+          <div class="header-title">SLOT BİLGİ <i class="fa-solid fa-crown"></i></div>
+          <div class="header-tagline">
+            Değerlendirmeler • Güncel RTP Oranları • Volatility Analizi • VIP Giriş
+          </div>
+        </div>
+      </div>
+      <button class="header-cta"><i class="fa-solid fa-gem"></i> SİTEYE GİT</button>
+    </a>
+  </header>
+
+  <main class="list">
+    <!-- 1. Kart -->
+    <a href="https://btkmgir.com/eqhnus" target="_blank" class="card-link" style="animation-delay: 0.1s">
+      <div class="card">
+        <div class="left"><img src="img/betkom.png" alt="logo"></div>
+        <div class="center-text-group">
+
+          <span class="center-text">1500 TL Deneme Bonusu</span>
+        </div>
+        <button class="bonus-btn">BONUSU AL</button>
+      </div>
+    </a>
+
+    <!-- 2. Kart -->
+    <a href="https://wintikla.com/l2tob6" target="_blank" class="card-link" style="animation-delay: 0.15s">
+      <div class="card">
+        <div class="left"><img src="img/betewin.png" alt="logo"></div>
+        <div class="center-text-group">
+
+          <span class="center-text">1000 TL Deneme Bonusu</span>
+        </div>
+        <button class="bonus-btn">BONUSU AL</button>
+      </div>
+    </a>
+
+    <!-- 3. Kart -->
+    <a href="https://bankogirisi.com/z12upb" target="_blank" class="card-link" style="animation-delay: 0.2s">
+      <div class="card">
+        <div class="left"><img src="img/bankobet.png" alt="logo"></div>
+        <div class="center-text-group">
+
+          <span class="center-text">1000 TL Deneme Bonusu</span>
+        </div>
+        <button class="bonus-btn">BONUSU AL</button>
+      </div>
+    </a>
+
+    <!-- 4. Kart -->
+    <a href="https://girismario.com/b2sqjp" target="_blank" class="card-link" style="animation-delay: 0.25s">
+      <div class="card">
+        <div class="left"><img src="img/mariobet.png" alt="logo"></div>
+        <div class="center-text-group">
+
+          <span class="center-text">1000 TL Deneme Bonusu</span>
+        </div>
+        <button class="bonus-btn">BONUSU AL</button>
+      </div>
+    </a>
+
+    <!-- 5. Kart -->
+    <a href="https://tarafbet.short.gy/2wt4Wn" target="_blank" class="card-link" style="animation-delay: 0.3s">
+      <div class="card">
+        <div class="left"><img src="img/tarafbet.png" alt="logo"></div>
+        <div class="center-text-group">
+          <span class="center-text">1000 TL Deneme Bonusu</span>
+        </div>
+        <button class="bonus-btn">BONUSU AL</button>
+      </div>
+    </a>
+
+    <!-- 6. Kart -->
+    <a href="https://bahisgirisb.com/lcrptb" target="_blank" class="card-link" style="animation-delay: 0.35s">
+      <div class="card">
+        <div class="left"><img src="img/bahiscom.png" alt="logo"></div>
+        <div class="center-text-group">
+          <span class="center-text">1000 TL Deneme Bonusu</span>
+        </div>
+        <button class="bonus-btn">BONUSU AL</button>
+      </div>
+    </a>
+  </main>
+
+  <nav>
+    <div class="menu-item active" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+      <img src="https://i.imgur.com/wBPQ4bV.png" class="menu-icon">
+      <span>Ana Sayfa</span>
+    </div>
+    <div class="menu-item" onclick="window.open('https://teams.live.com/l/invite/FEAANg5_vODVtnt4gk?v=g1', '_blank')">
+      <img src="https://i.imgur.com/WXxZjNw.png" class="menu-icon">
+      <span>Teams</span>
+    </div>
+    <div class="menu-item" onclick="window.open('https://telegram.me/slotbilgicom', '_blank')">
+      <img src="https://i.imgur.com/2uTTGi4.png" class="menu-icon">
+      <span>Telegram İletişim</span>
+    </div>
+    <div class="menu-item" onclick="window.open('https://t.me/slotbilgisohbet', '_blank')">
+      <img src="https://i.imgur.com/2uTTGi4.png" class="menu-icon">
+      <span>Telegram Sohbet</span>
+    </div>
+    <div class="menu-item" onclick="window.open('https://t.me/slotbilgiduyuru', '_blank')">
+      <img src="https://i.imgur.com/2uTTGi4.png" class="menu-icon">
+      <span>Telegram Duyuru</span>
+    </div>
+  </nav>
+
+</body>
+
+</html>
